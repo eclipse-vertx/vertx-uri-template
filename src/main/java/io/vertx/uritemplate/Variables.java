@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Holds a set of key/value pairs where each value can be a {@code String} or a {@code List<String>} or a {@code Map<String, String>}.
+ * Holds a set of name/value pairs where each value can be a {@code String} or a {@code List<String>} or a {@code Map<String, String>}.
  */
 @VertxGen
 public interface Variables {
