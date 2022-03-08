@@ -33,6 +33,10 @@ public class ExpandOptions {
     ExpandOptionsConverter.fromJson(json, this);
   }
 
+  public ExpandOptions(ExpandOptions that) {
+    allowVariableMiss = that.allowVariableMiss;
+  }
+
   /**
    * @return {@code false} to trigger a {@link java.util.NoSuchElementException} when a referenced variable is missing.
    */
