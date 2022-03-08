@@ -16,7 +16,9 @@ import io.vertx.uritemplate.impl.UriTemplateImpl;
 /**
  * A URI template that follows the <a href="https://datatracker.ietf.org/doc/html/rfc6570">rfc6570</a> level 4.
  *
- * <p> A template is thread safe and can be shared between threads after its creation.
+ * <p> A template is immutable and thread safe, it can be safely shared between threads after its creation.
+ * If you are sharing a template as a static variables, keep in mind that {@link #of(String)} can fail and create
+ * a classloading issue.
  *
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
  */
@@ -24,20 +26,33 @@ import io.vertx.uritemplate.impl.UriTemplateImpl;
 public interface UriTemplate {
 
   /**
-   * Create a template from a string {@code uri}
+   * Create a template from a string {@code uri}.
+   *
+   * <p> The string {@code uri} is validated and parsed, invalid inputs are rejected with a {@link IllegalArgumentException}.
+   *
    * @param uri the template string
    * @return the template
+   * @throws IllegalArgumentException when the template
    */
   static UriTemplate of(String uri) {
     return new UriTemplateImpl.Parser().parseURITemplate(uri);
   }
 
   /**
-   * Expand the template to a string.
+   * Expand this template to a string.
    *
    * @param variables the variables
    * @return the string expansion of this template with the {@code variables}
    */
   String expandToString(Variables variables);
+
+  /**
+   * Expand this template to a string.
+   *
+   * @param variables the variables
+   * @param options the options to control template expansion
+   * @return the string expansion of this template with the {@code variables}
+   */
+  String expandToString(Variables variables, ExpandOptions options);
 
 }

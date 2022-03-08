@@ -13,6 +13,7 @@ package io.vertx.uritemplate.impl;
 
 import io.netty.util.collection.CharObjectHashMap;
 import io.netty.util.collection.CharObjectMap;
+import io.vertx.uritemplate.ExpandOptions;
 import io.vertx.uritemplate.UriTemplate;
 import io.vertx.uritemplate.Variables;
 
@@ -27,6 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -200,12 +202,15 @@ public class UriTemplateImpl implements UriTemplate {
       this.so = s;
     }
 
-    void expand(List<Varspec> variableList, Variables variables, StringBuilder sb) {
+    void expand(List<Varspec> variableList, Variables variables, boolean allowVariableMiss, StringBuilder sb) {
       List<String> l = new ArrayList<>();
       for (Varspec variable : variableList) {
         Object o = variables.get(variable.varname);
         List<String> values;
         if (o == null) {
+          if (!allowVariableMiss) {
+            throw new NoSuchElementException("Variable " + variable.varname + " is missing");
+          }
           continue;
         } else if (o instanceof String) {
           String s = (String) o;
@@ -632,14 +637,23 @@ public class UriTemplateImpl implements UriTemplate {
   private final List<Term> terms = new ArrayList<>();
 
   @Override
+  public String expandToString(Variables variables, ExpandOptions options) {
+    return expandToString(variables, options.getAllowVariableMiss());
+  }
+
+  @Override
   public String expandToString(Variables variables) {
+    return expandToString(variables, true);
+  }
+
+  private String expandToString(Variables variables, boolean allowVariableMiss) {
     StringBuilder sb = new StringBuilder();
     for (Term term : terms) {
       if (term instanceof Literals) {
         sb.append(((Literals)term).value);
       } else {
         Expression expression = (Expression) term;
-        expression.operator.expand(expression.value, variables, sb);
+        expression.operator.expand(expression.value, variables, allowVariableMiss, sb);
       }
     }
     return sb.toString();

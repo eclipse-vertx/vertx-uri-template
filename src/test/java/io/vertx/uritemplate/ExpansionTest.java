@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -266,13 +267,25 @@ public class ExpansionTest {
     assertEquals("", UriTemplate.of("{empty_map*}").expandToString(variables));
   }
 
-  private void assertExpansionFailure(String stemplate) {
-    UriTemplate template = UriTemplate.of(stemplate);
+  @Test
+  public void testMissingVariableExpansion() {
+    assertEquals("", UriTemplate.of("{does_not_exist}").expandToString(variables));
+    assertEquals("", UriTemplate.of("{does_not_exist}").expandToString(variables, new ExpandOptions()));
+    assertEquals(NoSuchElementException.class, assertExpansionFailure("{does_not_exist}", new ExpandOptions().setAllowVariableMiss(false)).getClass());
+  }
+
+  private void assertExpansionFailure(String stringTemplate) {
+    assertExpansionFailure(stringTemplate, new ExpandOptions());
+  }
+
+  private Throwable assertExpansionFailure(String stringTemplate, ExpandOptions options) {
+    UriTemplate template = UriTemplate.of(stringTemplate);
     try {
-      template.expandToString(variables);
-      fail();
+      template.expandToString(variables, options);
+      throw new AssertionError();
     } catch (Exception ignore) {
       // Expected
+      return ignore;
     }
   }
 }
