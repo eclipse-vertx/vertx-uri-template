@@ -24,12 +24,12 @@
   </parent>
 
   <artifactId>vertx-uri-template</artifactId>
-  <version>4.3.1</version>
+  <version>4.3.2-SNAPSHOT</version>
 
   <name>Vert.x URI Template</name>
 
   <properties>
-    <stack.version>4.3.1</stack.version>
+    <stack.version>4.3.2-SNAPSHOT</stack.version>
   </properties>
 
   <dependencyManagement>
