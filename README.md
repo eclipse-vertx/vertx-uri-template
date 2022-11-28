@@ -2,10 +2,12 @@
 
 # Vert.x URI Template
 
+An implementation of the [URI Template RFC](https://datatracker.ietf.org/doc/html/rfc6570).
+
 Please see the in-source asciidoc documentation or the main documentation on the web-site for a full description
 of this component:
 
-* [web-site docs](todo)
+* [web-site docs](https://vertx.io/docs/vertx-uri-template/java/)
 * [in-source docs](src/main/asciidoc/index.adoc)
 
 # License
