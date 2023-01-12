@@ -60,6 +60,10 @@
       <artifactId>vertx-docgen</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web</artifactId>
+    </dependency>
 
     <!-- Test deps -->
     <dependency>
@@ -67,6 +71,10 @@
       <artifactId>junit</artifactId>
       <version>4.13.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-junit5</artifactId>
     </dependency>
 
   </dependencies>
@@ -100,6 +108,19 @@
             <additionalClasspathElement>${basedir}/src/test/resources/ref_test/schemas.jar</additionalClasspathElement>
           </additionalClasspathElements>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.0.0-M8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
