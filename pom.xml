@@ -30,6 +30,7 @@
 
   <properties>
     <stack.version>4.4.0-SNAPSHOT</stack.version>
+    <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
   </properties>
 
   <dependencyManagement>
@@ -74,7 +75,7 @@
   <build>
     <resources>
       <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
+        <directory>src/main/resources</directory>
         <includes>
           <include>**/*</include>
         </includes>
