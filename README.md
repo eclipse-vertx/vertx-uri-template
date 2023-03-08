@@ -1,4 +1,5 @@
-[![Build Status](https://github.com/eclipse-vertx/vertx-uri-template/workflows/CI/badge.svg?branch=main)](https://github.com/eclipse-vertx/vertx-uri-template/actions?query=workflow%3ACI)
+[![Build Status (5.x)](https://github.com/eclipse-vertx/vertx-uri-template/actions/workflows/ci-5.x.yml/badge.svg)](https://github.com/eclipse-vertx/vertx-uri-template/actions/workflows/ci-5.x.yml)
+[![Build Status (4.x)](https://github.com/eclipse-vertx/vertx-uri-template/actions/workflows/ci-4.x.yml/badge.svg)](https://github.com/eclipse-vertx/vertx-uri-template/actions/workflows/ci-4.x.yml)
 
 # Vert.x URI Template
 
