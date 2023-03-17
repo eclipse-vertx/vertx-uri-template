@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  */
-@ModuleGen(name = "vertx-uri-template", groupPackage = "io.vertx", useFutures = true, checkCallbackDeprecation = true)
+@ModuleGen(name = "vertx-uri-template", groupPackage = "io.vertx", useFutures = true)
 package io.vertx.uritemplate;
 
 import io.vertx.codegen.annotations.ModuleGen;
