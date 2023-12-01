@@ -8,8 +8,8 @@ An implementation of the [URI Template RFC](https://datatracker.ietf.org/doc/htm
 Please see the in-source asciidoc documentation or the main documentation on the web-site for a full description
 of this component:
 
-* [web-site docs](https://vertx.io/docs/vertx-uri-template/java/)
 * [in-source docs](src/main/asciidoc/index.adoc)
+* [web-site docs](https://vertx.io/docs/vertx-uri-template/java/)
 
 # License
 
