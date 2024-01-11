@@ -77,7 +77,7 @@ public class ExpansionTest {
     assertEquals("one=1,two=2,three=3,comma=%2C", UriTemplate.of("{map*}").expandToString(variables));
     assertEquals("", UriTemplate.of("{empty_map}").expandToString(variables));
     assertEquals("", UriTemplate.of("{empty_map*}").expandToString(variables));
-    assertExpansionFailure("{list:1}");
+    assertEquals("o,t,t", UriTemplate.of("{list:1}").expandToString(variables));
     assertExpansionFailure("{map:1}");
   }
 
