@@ -35,7 +35,7 @@ public interface UriTemplate {
    * @throws IllegalArgumentException when the template
    */
   static UriTemplate of(String uri) {
-    return new UriTemplateImpl.Parser().parseURITemplate(uri);
+    return new UriTemplateImpl(uri);
   }
 
   /**

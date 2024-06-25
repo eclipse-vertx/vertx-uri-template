@@ -30,6 +30,7 @@
 
   <properties>
     <stack.version>5.0.0-SNAPSHOT</stack.version>
+    <std-uritemplate.version>0.0.50</std-uritemplate.version>
     <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
   </properties>
 
@@ -60,6 +61,11 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-docgen</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.std-uritemplate</groupId>
+      <artifactId>std-uritemplate</artifactId>
+      <version>${std-uritemplate.version}</version>
     </dependency>
 
     <!-- Test deps -->
