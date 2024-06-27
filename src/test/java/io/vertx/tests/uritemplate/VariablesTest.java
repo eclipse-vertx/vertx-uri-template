@@ -8,10 +8,11 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  */
-package io.vertx.uritemplate;
+package io.vertx.tests.uritemplate;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
+import io.vertx.uritemplate.Variables;
 import org.junit.Test;
 
 import java.util.Arrays;

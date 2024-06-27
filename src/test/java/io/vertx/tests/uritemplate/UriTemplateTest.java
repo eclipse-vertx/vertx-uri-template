@@ -8,8 +8,9 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  */
-package io.vertx.uritemplate;
+package io.vertx.tests.uritemplate;
 
+import io.vertx.uritemplate.UriTemplate;
 import io.vertx.uritemplate.impl.UriTemplateImpl;
 import org.junit.Test;
 

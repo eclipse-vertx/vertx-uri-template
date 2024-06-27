@@ -8,8 +8,12 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  */
-package io.vertx.uritemplate;
+package io.vertx.tests.uritemplate;
 
+import io.vertx.uritemplate.ExpandOptions;
+import io.vertx.uritemplate.UriTemplate;
+import io.vertx.uritemplate.Variables;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -54,7 +58,7 @@ public class ExpansionTest {
 
   @Test
   public void testSimpleStringExpansion() {
-    assertEquals("prefixsuffix", UriTemplate.of("prefix{undef}suffix").expandToString(variables));
+    Assert.assertEquals("prefixsuffix", UriTemplate.of("prefix{undef}suffix").expandToString(variables));
     assertEquals("prefixsuffix", UriTemplate.of("prefix{empty}suffix").expandToString(variables));
     assertEquals("prefixsuffix", UriTemplate.of("prefix{empty}suffix").expandToString(variables));
     assertEquals("prefixval1suffix", UriTemplate.of("prefix{var1}suffix").expandToString(variables));
