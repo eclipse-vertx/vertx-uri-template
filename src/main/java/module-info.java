@@ -11,6 +11,7 @@
 module io.vertx.uritemplate {
 
   requires transitive io.vertx.core;
+  requires io.netty.common;
 
   requires static io.vertx.codegen.api;
   requires static io.vertx.codegen.json;
