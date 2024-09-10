@@ -15,7 +15,7 @@ module io.vertx.uritemplate {
 
   requires static io.vertx.codegen.api;
   requires static io.vertx.codegen.json;
-  requires static vertx.docgen;
+  requires static io.vertx.docgen;
 
   exports io.vertx.uritemplate;
 
