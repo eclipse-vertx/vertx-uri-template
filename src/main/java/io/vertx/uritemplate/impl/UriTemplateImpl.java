@@ -318,8 +318,9 @@ public class UriTemplateImpl implements UriTemplate {
 
     public UriTemplateImpl parseURITemplate(String s) {
       template = new UriTemplateImpl();
-      if (parseURITemplate(s, 0) != s.length()) {
-        throw new IllegalArgumentException();
+      int stop = parseURITemplate(s, 0);
+      if (stop != s.length()) {
+        throw new IllegalArgumentException("Error parsing template at position: " + stop);
       }
       for (Term term : template.terms) {
         if (term instanceof Expression && ((Expression) term).operator == Operator.FUTURE) {
