@@ -121,6 +121,17 @@ public class UriTemplateTest {
   }
 
   @Test
+  public void testInvalidCharacter() {
+    String template = "hello world";
+    try {
+      UriTemplate.of(template);
+      fail("Was expecting " + template + " to fail");
+    } catch (IllegalArgumentException ex) {
+      assertEquals("Error parsing template at position: 5", ex.getMessage());
+    }
+  }
+
+  @Test
   public void testOpReserved() {
     assertInvalidTemplate("{!test}");
   }
